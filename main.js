@@ -12,7 +12,7 @@ document.getElementById("btnload").addEventListener("click", async () => {
     userId: item.userId,
     taskId: item.id,
     title: item.title,
-    completed: item.completed ? "Completed" : "Not Completed",
+    completed: item.completed ? "Completed" : "Not Yet Completed",
   }));
   iterateRecords(arrRecords);
 });
@@ -43,7 +43,13 @@ function iterateRecords(records) {
     for (const key in record) {
       const tblData = document.createElement("td");
       tblData.textContent = record[key];
-      tblData.style.padding = "10px";
+      if (key === "completed") {
+        if (record[key] === "Completed") {
+          tblData.style.color = "green";
+        } else {
+          tblData.style.color = "red";
+        }
+      }
       tblRow.appendChild(tblData);
     }
     tblBody.appendChild(tblRow);

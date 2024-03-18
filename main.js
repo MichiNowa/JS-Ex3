@@ -5,6 +5,7 @@ const tblRecords = document.getElementById("tblRecords");
 let arrRecords = [];
 const tblTHsLabels = ["User ID", "Task ID", "Title", "Status"];
 
+//get data from api
 document.getElementById("btnload").addEventListener("click", async () => {
   const apiUrl = "https://jsonplaceholder.typicode.com/todos/";
   const fetchedData = await fetchData(apiUrl);
